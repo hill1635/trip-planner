@@ -27,6 +27,7 @@ function LoginBox() {
           <input type="text"></input>
           <p>Password:</p>
           <input type="text"></input>
+          <button className="submit">Login</button>
           <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
         </div>
       </div>
