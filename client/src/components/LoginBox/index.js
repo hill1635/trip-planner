@@ -1,10 +1,11 @@
 import React from "react";
 
 function LoginBox(props) {
+
     return (
-        <div className="modal loginModal">
+        <div className={props.state}>
         <div className="modal-background"></div>
-        <div className="modal-content">
+        <div className="modal-card">
           <h1 className="title">Login</h1>
           <input type="text"></input>
         </div>

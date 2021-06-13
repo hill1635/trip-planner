@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import LoginBox from "../LoginBox";
 
 function LoginBtn() {
-  const [state, setState] = useState();
+  const [state, setState] = useState("modal loginModal");
   useEffect(() => {
     var login = document.querySelector(".login");
     login.addEventListener("click", () => {
-      setState("is-active");
+      setState("modal loginModal is-active");
     });
   });
 
