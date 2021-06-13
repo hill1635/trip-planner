@@ -28,34 +28,20 @@ function Navbar() {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">Home</a>
-
-          <a className="navbar-item">Documentation</a>
-
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">More</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">About</a>
-              <a className="navbar-item">Jobs</a>
-              <a className="navbar-item">Contact</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">Report an issue</a>
-            </div>
+          <Link to="/" className="navbar-item">Home</Link>
           </div>
         </div>
 
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary">
+              <Link to="/signup" className="button is-primary">
                 <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">Log in</a>
+              </Link>
+              <Link to="/login" className="button is-light">Log in</Link>
             </div>
           </div>
         </div>
-      </div>
     </nav>
   );
 }
