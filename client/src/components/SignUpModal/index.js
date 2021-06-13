@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-function SignUpBox() {
+function SignUpModal() {
     const [state, setState] = useState("modal loginModal");
   
     useEffect(() => {
@@ -35,5 +35,5 @@ function SignUpBox() {
     );
   }
   
-  export default SignUpBox;
+  export default SignUpModal;
   
