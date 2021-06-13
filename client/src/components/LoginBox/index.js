@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
-function LoginBox(props) {
+function LoginBox() {
   const [state, setState] = useState("modal loginModal");
 
   useEffect(() => {
