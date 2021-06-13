@@ -17,7 +17,7 @@ function SignUpBox() {
     return (
       <div className={state}>
         <div className="modal-background"></div>
-        <div className="modal-card signUpBox">
+        <div className="modal-card signupBox">
           <div className="modal-header">
             <h1 className="title">Sign up</h1>
           </div>
