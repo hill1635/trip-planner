@@ -1,21 +1,37 @@
 import React, { useEffect, useState } from "react";
+import "./style.css";
 
 function LoginBox(props) {
-  const [state, setState] = useState();
-  useEffect(() => {
-    setState(props.state);
-  });
+  const [state, setState] = useState("modal loginModal");
 
-    return (
-        <div className={state}>
-        <div className="modal-background"></div>
-        <div className="modal-card">
+  useEffect(() => {
+    var login = document.querySelector(".login");
+    login.addEventListener("click", () => {
+      setState("modal loginModal is-active");
+    });
+  });
+  
+  function close() {
+    setState("modal loginModal");
+  }
+
+  return (
+    <div className={state}>
+      <div className="modal-background"></div>
+      <div className="modal-card loginBox">
+        <div className="modal-header">
           <h1 className="title">Login</h1>
-          <input type="text"></input>
         </div>
-        <button className="modal-close is-large" aria-label="close"></button>
+        <div className="modal-content">
+          <p>Email:</p>
+          <input type="text"></input>
+          <p>Password:</p>
+          <input type="text"></input>
+          <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
+        </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export default LoginBox;
