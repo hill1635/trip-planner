@@ -6,15 +6,14 @@ function LoginBtn() {
   useEffect(() => {
     var login = document.querySelector(".login");
     login.addEventListener("click", () => {
-        console.log("is-active");
-    //   setState("is-active");
+      setState("is-active");
     });
   });
 
   return (
     <div>
       <button className="button is-light login">Log in</button>
-      <LoginBox />
+      <LoginBox state={state}/>
     </div>
   );
 }

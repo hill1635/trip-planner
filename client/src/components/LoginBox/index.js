@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginBox() {
+function LoginBox(props) {
     return (
         <div className="modal loginModal">
         <div className="modal-background"></div>
