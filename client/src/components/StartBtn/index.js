@@ -1,12 +1,16 @@
 import React from "react";
+import NewTripModal from "../NewTripModal";
 import "./style.scss";
 
 function StartBtn() {
   return (
-    <button className="startBtn">
-      <i class="fas fa-plus plus"></i>
-      Start a New Journey
-    </button>
+    <div>
+      <button className="startBtn">
+        <i class="fas fa-plus plus"></i>
+        Start a New Journey
+      </button>
+      <NewTripModal />
+    </div>
   );
 }
 
