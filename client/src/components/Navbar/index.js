@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <span>
-          <h1 className="title">Trip Planner</h1>
+          <h1 className="title">Odyssey</h1>
         </span>
 
         <a
