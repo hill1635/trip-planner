@@ -1,17 +1,14 @@
 import React from "react";
+import LoginBtn from "../LoginBtn";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
-        </a>
+        <span>
+          <h1 className="title">Trip Planner</h1>
+        </span>
 
         <a
           role="button"
@@ -35,10 +32,10 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
+              <LoginBtn/>
               <Link to="/signup" className="button is-primary">
                 <strong>Sign up</strong>
               </Link>
-              <Link to="/login" className="button is-light">Log in</Link>
             </div>
           </div>
         </div>
