@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
+import "./style.scss";
 
 function LoginBox() {
   const [state, setState] = useState("modal loginModal");

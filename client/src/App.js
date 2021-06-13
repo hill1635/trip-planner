@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import 'bulma/css/bulma.min.css';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
