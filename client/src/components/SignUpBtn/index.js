@@ -1,5 +1,5 @@
 import React from "react";
-import SignUpBox from "../SignUpBox";
+import SignUpModal from "../SignUpModal";
 
 function SignUpBtn() {
   return (
@@ -7,7 +7,7 @@ function SignUpBtn() {
       <button to="/signup" className="button is-primary signup">
         <strong>Sign up</strong>
       </button>
-      <SignUpBox/>
+      <SignUpModal/>
     </div>
   );
 }
