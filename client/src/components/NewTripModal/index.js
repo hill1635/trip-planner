@@ -23,16 +23,16 @@ function NewTripModal() {
           <h1 className="title">New Journey</h1>
         </div>
         <div className="modal-content">
+            <p>Start Date:</p>
+            <input type="text"></input>
+            <p>End Date:</p>
+            <input type="text"></input>
             <p>Starting Location:</p>
             <input type="text"></input>
             <p>Ending Location:</p>
             <input type="text"></input>
             <p>Loop</p>
             <input type="checkbox"></input>
-            <p>Start Date:</p>
-            <input type="text"></input>
-            <p>End Date:</p>
-            <input type="text"></input>
             <p>Add Stop:</p>
             <input type="text"></input>
             <button className="addStop">Add</button>
