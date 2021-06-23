@@ -25,7 +25,6 @@ function NewTripModal() {
       trip.endDate = document.querySelector(".endDate").value;
       trip.startLocation = document.querySelector(".startLocation").value;
       trip.endLocation = document.querySelector(".endLocation").value;
-      console.log("trip: ", trip);
     });
   });
 
