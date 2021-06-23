@@ -16,7 +16,7 @@ function NewTripModal() {
     });
 
     addBtn.addEventListener("click", () => {
-      stops.push(document.querySelector(".addStop").value);
+      stops.push(document.querySelector(".addInput").value);
       trip.stops = stops;
     });
 
@@ -51,7 +51,7 @@ function NewTripModal() {
           <p>Loop</p>
           <input type="checkbox" className="loop"></input>
           <p>Add Stop:</p>
-          <input type="text" className="addStop"></input>
+          <input type="text" className="addInput"></input>
           <button className="addBtn">Add</button>
           <button className="submitBtn">Save</button>
           <button className="cancelBtn" aria-label="close" onClick={close}>
