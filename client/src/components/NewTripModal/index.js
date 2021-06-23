@@ -24,19 +24,19 @@ function NewTripModal() {
         </div>
         <div className="modal-content">
             <p>Start Date:</p>
-            <input type="text"></input>
+            <input type="text" className="startDate"></input>
             <p>End Date:</p>
-            <input type="text"></input>
+            <input type="text" className="endDate"></input>
             <p>Starting Location:</p>
-            <input type="text"></input>
+            <input type="text" className="startLocation"></input>
             <p>Ending Location:</p>
-            <input type="text"></input>
+            <input type="text" className="endLocation"></input>
             <p>Loop</p>
-            <input type="checkbox"></input>
+            <input type="checkbox" className="loop"></input>
             <p>Add Stop:</p>
-            <input type="text"></input>
-            <button className="addStop">Add</button>
-            <button className="submit">Save</button>
+            <input type="text" className="addStop"></input>
+            <button className="addBtn">Add</button>
+            <button className="submitBtn">Save</button>
             <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
         </div>
       </div>
