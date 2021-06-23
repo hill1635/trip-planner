@@ -18,8 +18,6 @@ function NewTripModal() {
     addBtn.addEventListener("click", () => {
       stops.push(document.querySelector(".addStop").value);
       trip.stops = stops;
-      console.log("stops: ", stops);
-      console.log("trip: ", trip);
     });
 
     submitBtn.addEventListener("click", () => {
