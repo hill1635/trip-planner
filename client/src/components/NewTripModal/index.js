@@ -8,13 +8,18 @@ function NewTripModal() {
     var startBtn = document.querySelector(".startBtn");
     var addBtn = document.querySelector(".addBtn");
     var submitBtn = document.querySelector(".submitBtn");
+    var stops = [];
+    var trip = {};
 
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
     });
 
     addBtn.addEventListener("click", () => {
-      console.log(document.querySelector(".addStop").value);
+      stops.push(document.querySelector(".addStop").value);
+      trip.stops = stops;
+      console.log("stops: ", stops);
+      console.log("trip: ", trip);
     });
 
     submitBtn.addEventListener("click", () => {
