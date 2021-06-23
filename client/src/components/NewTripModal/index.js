@@ -13,7 +13,7 @@ function NewTripModal() {
     });
 
     addBtn.addEventListener("click", () => {
-      setState("modal newTripModal is-active");
+      console.log(document.querySelector(".addStop").value);
     });
   });
 
