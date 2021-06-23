@@ -7,6 +7,7 @@ function NewTripModal() {
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
     var addBtn = document.querySelector(".addBtn");
+    var submitBtn = document.querySelector(".submitBtn");
 
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
@@ -14,6 +15,13 @@ function NewTripModal() {
 
     addBtn.addEventListener("click", () => {
       console.log(document.querySelector(".addStop").value);
+    });
+
+    submitBtn.addEventListener("click", () => {
+      console.log(document.querySelector(".startDate").value);
+      console.log(document.querySelector(".endDate").value);
+      console.log(document.querySelector(".startLocation").value);
+      console.log(document.querySelector(".endLocation").value);
     });
   });
 
