@@ -21,10 +21,11 @@ function NewTripModal() {
     });
 
     submitBtn.addEventListener("click", () => {
-      console.log(document.querySelector(".startDate").value);
-      console.log(document.querySelector(".endDate").value);
-      console.log(document.querySelector(".startLocation").value);
-      console.log(document.querySelector(".endLocation").value);
+      trip.startDate = document.querySelector(".startDate").value;
+      trip.endDate = document.querySelector(".endDate").value;
+      trip.startLocation = document.querySelector(".startLocation").value;
+      trip.endLocation = document.querySelector(".endLocation").value;
+      console.log("trip: ", trip);
     });
   });
 
