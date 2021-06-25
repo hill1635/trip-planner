@@ -8,6 +8,11 @@ function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [params, setParams] = useState({});
   const [stops, setStops] = useState([]);
+  
+  var trip = {
+    params: params,
+    stops: stops,
+  };
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
@@ -40,9 +45,9 @@ function NewTripModal() {
           <input type="checkbox" className="loop"></input>
           <p>Add Stop:</p>
           <input type="text" className="addInput"></input>
-          <AddBtn stops={stops} setStops={(e)=>setStops(e)}/>
-          <SubmitBtn params={params} setParams={(e)=>setParams(e)}/>
-          <CancelBtn close={close}/>
+          <AddBtn stops={stops} setStops={(e) => setStops(e)} />
+          <SubmitBtn params={params} setParams={(e) => setParams(e)} view={viewTrip}/>
+          <CancelBtn close={close} />
         </div>
       </div>
     </div>
