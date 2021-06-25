@@ -10,7 +10,6 @@ function NewTripModal() {
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
-    
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
     });
