@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddBtn from "../AddBtn";
+import SubmitBtn from "../SubmitBtn";
 import "./style.scss";
 
 function NewTripModal() {
@@ -7,17 +8,9 @@ function NewTripModal() {
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
-    var submitBtn = document.querySelector(".submitBtn");
-
+    
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
-    });
-
-    submitBtn.addEventListener("click", () => {
-      trip.startDate = document.querySelector(".startDate").value;
-      trip.endDate = document.querySelector(".endDate").value;
-      trip.startLocation = document.querySelector(".startLocation").value;
-      trip.endLocation = document.querySelector(".endLocation").value;
     });
   });
 
@@ -46,7 +39,7 @@ function NewTripModal() {
           <p>Add Stop:</p>
           <input type="text" className="addInput"></input>
           <AddBtn />
-          <button className="submitBtn">Save</button>
+          <SubmitBtn />
           <button className="cancelBtn" aria-label="close" onClick={close}>
             Cancel
           </button>
