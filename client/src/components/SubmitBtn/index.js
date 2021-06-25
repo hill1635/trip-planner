@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./style.scss";
 
 function SubmitBtn(props) {
-  var trip = {};
 
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
@@ -11,7 +10,7 @@ function SubmitBtn(props) {
         startDate: document.querySelector(".startDate").value,
         endDate: document.querySelector(".endDate").value,
         startLocation: document.querySelector(".startLocation").value,
-        endLocation: trip.endLocation = document.querySelector(".endLocation").value
+        endLocation: document.querySelector(".endLocation").value
       });
     });
   });
