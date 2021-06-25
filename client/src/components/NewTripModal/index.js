@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AddBtn from "../AddBtn";
 import "./style.scss";
 
 function NewTripModal() {
@@ -6,18 +7,10 @@ function NewTripModal() {
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
-    var addBtn = document.querySelector(".addBtn");
     var submitBtn = document.querySelector(".submitBtn");
-    var stops = [];
-    var trip = {};
 
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
-    });
-
-    addBtn.addEventListener("click", () => {
-      stops.push(document.querySelector(".addInput").value);
-      trip.stops = stops;
     });
 
     submitBtn.addEventListener("click", () => {
@@ -52,7 +45,7 @@ function NewTripModal() {
           <input type="checkbox" className="loop"></input>
           <p>Add Stop:</p>
           <input type="text" className="addInput"></input>
-          <button className="addBtn">Add</button>
+          <AddBtn />
           <button className="submitBtn">Save</button>
           <button className="cancelBtn" aria-label="close" onClick={close}>
             Cancel
