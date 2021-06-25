@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddBtn from "../AddBtn";
 import SubmitBtn from "../SubmitBtn";
+import CancelBtn from "../CancelBtn";
 import "./style.scss";
 
 function NewTripModal() {
@@ -40,9 +41,7 @@ function NewTripModal() {
           <input type="text" className="addInput"></input>
           <AddBtn />
           <SubmitBtn />
-          <button className="cancelBtn" aria-label="close" onClick={close}>
-            Cancel
-          </button>
+          <CancelBtn close={close}/>
         </div>
       </div>
     </div>
