@@ -6,6 +6,7 @@ import "./style.scss";
 
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
+  const [stops, setStops] = useState([]);
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
@@ -39,7 +40,7 @@ function NewTripModal() {
           <input type="checkbox" className="loop"></input>
           <p>Add Stop:</p>
           <input type="text" className="addInput"></input>
-          <AddBtn />
+          <AddBtn stops={stops} setStops={(e)=>setStops(e)}/>
           <SubmitBtn />
           <CancelBtn close={close}/>
         </div>
