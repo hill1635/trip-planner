@@ -6,6 +6,7 @@ import "./style.scss";
 
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
+  const [params, setParams] = useState({});
   const [stops, setStops] = useState([]);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function NewTripModal() {
           <p>Add Stop:</p>
           <input type="text" className="addInput"></input>
           <AddBtn stops={stops} setStops={(e)=>setStops(e)}/>
-          <SubmitBtn />
+          <SubmitBtn params={params} setParams={(e)=>setParams(e)}/>
           <CancelBtn close={close}/>
         </div>
       </div>

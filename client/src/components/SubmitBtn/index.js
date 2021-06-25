@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import "./style.scss";
 
-function SubmitBtn() {
+function SubmitBtn(props) {
   var trip = {};
 
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
     
     submitBtn.addEventListener("click", () => {
-      trip.startDate = document.querySelector(".startDate").value;
-      trip.endDate = document.querySelector(".endDate").value;
-      trip.startLocation = document.querySelector(".startLocation").value;
-      trip.endLocation = document.querySelector(".endLocation").value;
+      props.setParams({
+        startDate: document.querySelector(".startDate").value,
+        endDate: document.querySelector(".endDate").value,
+        startLocation: document.querySelector(".startLocation").value,
+        endLocation: trip.endLocation = document.querySelector(".endLocation").value
+      });
     });
   });
 
