@@ -6,7 +6,6 @@ function SubmitBtn(props) {
 
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
-    
     submitBtn.addEventListener("click", () => {
       props.setParams({
         startDate: document.querySelector(".startDate").value,
