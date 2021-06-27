@@ -36,43 +36,23 @@ function NewTripModal() {
           <div className="column">
             <div className="columns">
               <div className="column centered mr-0 is-one-third">
-                <input
-                  type="text"
-                  placeholder="Start Date"
-                  className="startDate input is-rounded"
-                ></input>
+                <input type="text" placeholder="Start Date" className="startDate input is-rounded"></input>
               </div>
               <div className="column centered ml-0 is-one-third">
-                <input
-                  type="text"
-                  placeholder="End Date"
-                  className="endDate input is-rounded"
-                ></input>
+                <input type="text" placeholder="End Date" className="endDate input is-rounded"></input>
               </div>
             </div>
             <div className="columns">
               <div className="column mr-0 centered is-one-third">
-                <input
-                  type="text"
-                  placeholder="Start Location"
-                  className="startLocation input is-rounded"
-                ></input>
+                <input type="text" placeholder="Start Location"  className="startLocation input is-rounded"></input>
               </div>
               <div className="column ml-0 centered is-one-third">
-                <input
-                  type="text"
-                  placeholder="End Location"
-                  className="endLocation input is-rounded"
-                ></input>
+                <input type="text" placeholder="End Location" className="endLocation input is-rounded"></input>
               </div>
             </div>
           </div>
           <div className="column is-three-fifths centered">
-            <input
-              type="text"
-              placeholder="Add Stop"
-              className="addInput is-hidden"
-            ></input>
+            <input type="text" placeholder="Add Stop" className="addInput is-hidden"></input>
             <AddBtn stops={stops} setStops={(e) => setStops(e)} />
           </div>
           <SubmitBtn params={params} setParams={(e) => setParams(e)} />
