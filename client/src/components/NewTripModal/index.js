@@ -28,25 +28,56 @@ function NewTripModal() {
   return (
     <div className={state}>
       <div className="modal-background"></div>
-      <div className="modal-card newTripBox">
+      <div className="modal-card newTripBox has-text-centered">
         <div className="modal-header">
           <h1 className="title">New Journey</h1>
         </div>
-        <div className="modal-content">
-          <p>Start Date:</p>
-          <input type="text" className="startDate"></input>
-          <p>End Date:</p>
-          <input type="text" className="endDate"></input>
-          <p>Starting Location:</p>
-          <input type="text" className="startLocation"></input>
-          <p>Ending Location:</p>
-          <input type="text" className="endLocation"></input>
-          <p>Loop</p>
-          <input type="checkbox" className="loop"></input>
-          <p>Add Stop:</p>
-          <input type="text" className="addInput"></input>
+        <div className="modal-content column is-full">
+          <div className="column">
+            <div className="columns">
+              <div className="column centered mr-0 is-one-third">
+                <input
+                  type="text"
+                  placeholder="Start Date"
+                  className="startDate input is-rounded"
+                ></input>
+              </div>
+              <div className="column centered ml-0 is-one-third">
+                <input
+                  type="text"
+                  placeholder="End Date"
+                  className="endDate input is-rounded"
+                ></input>
+              </div>
+            </div>
+            <div className="columns">
+              <div className="column mr-0 centered is-one-third">
+                <input
+                  type="text"
+                  placeholder="Start Location"
+                  className="startLocation input is-rounded"
+                ></input>
+              </div>
+              <div className="column ml-0 centered is-one-third">
+                <input
+                  type="text"
+                  placeholder="End Location"
+                  className="endLocation input is-rounded"
+                ></input>
+              </div>
+            </div>
+          </div>
           <AddBtn stops={stops} setStops={(e) => setStops(e)} />
-          <SubmitBtn params={params} setParams={(e) => setParams(e)}/>
+          <div className="columns">
+            <div className="column is-hidden">
+              <p>Add Stop:</p>
+              <input
+                type="text"
+                className="addInput tripInput input is-rounded"
+              ></input>
+            </div>
+          </div>
+          <SubmitBtn params={params} setParams={(e) => setParams(e)} />
           <CancelBtn close={close} />
         </div>
       </div>
