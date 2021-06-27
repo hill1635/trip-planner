@@ -13,7 +13,12 @@ function AddBtn(props) {
     });
   });
 
-  return <button className="addBtn">Add</button>;
+  return (
+    <button className="addBtn button is-rounded is-success m-3">
+      <i class="fas fa-plus plus"></i>
+      Add Stop
+    </button>
+  );
 }
 
 export default AddBtn;
