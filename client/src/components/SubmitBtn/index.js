@@ -15,7 +15,12 @@ function SubmitBtn(props) {
     });
   });
 
-  return <button className="submitBtn">Save</button>;
+  return (
+  <button className="submitBtn button is-info is-rounded">
+    <i class="fas fa-save mr-2"></i>
+    Save
+    </button>
+  );
 }
 
 export default SubmitBtn;
