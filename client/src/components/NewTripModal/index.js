@@ -52,7 +52,7 @@ function NewTripModal() {
             </div>
           </div>
           <div className="column is-three-fifths centered">
-            <input type="text" placeholder="Add Stop" className="addInput is-hidden"></input>
+            <input type="text" placeholder="Add Stop" className="addInput input is-rounded"></input>
             <AddBtn stops={stops} setStops={(e) => setStops(e)} />
           </div>
           <SubmitBtn params={params} setParams={(e) => setParams(e)} />
