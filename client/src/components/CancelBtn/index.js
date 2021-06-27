@@ -4,7 +4,8 @@ import "./style.scss";
 function CancelBtn(props) {
 
   return (
-    <button className="cancelBtn" aria-label="close" onClick={props.close}>
+    <button className="cancelBtn button is-danger is-outlined is-rounded" aria-label="close" onClick={props.close}>
+      <i class="fas fa-times mr-1"></i>
       Cancel
     </button>
   );
