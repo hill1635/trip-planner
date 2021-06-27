@@ -7,9 +7,11 @@ function AddBtn(props) {
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
+    var addInput = document.querySelector(".addInput");
     addBtn.addEventListener("click", () => {
-      stops.push(document.querySelector(".addInput").value);
-      props.setStops(stops);
+      // stops.push(document.querySelector(".addInput").value);
+      // props.setStops(stops);
+      addInput.className = "addInput input is-rounded";
     });
   });
 
