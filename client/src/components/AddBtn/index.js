@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./style.scss";
 
 function AddBtn(props) {
-  console.log("setStops: ", props.setStops);
   var stops = [];
 
   useEffect(() => {
@@ -16,7 +15,7 @@ function AddBtn(props) {
 
   return (
     <button className="addBtn button is-rounded is-success m-3">
-      <i class="fas fa-plus plus"></i>
+      <i class="fas fa-plus plus mr-1"></i>
       Add Stop
     </button>
   );
