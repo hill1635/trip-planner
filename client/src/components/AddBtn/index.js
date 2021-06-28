@@ -6,9 +6,9 @@ function AddBtn(props) {
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
-    addBtn.addEventListener("click", (event) => {
-      props.setStops(stops);
+    addBtn.addEventListener("click", () => {
       stops.push(document.querySelector(".addInput").value);
+      props.setStops(stops);
     });
   });
 
