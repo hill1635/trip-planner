@@ -31,8 +31,10 @@ function LoginModal() {
               <input className="input is-rounded" type="text" placeholder="Password"></input>
             </div>
           </div>
-          <button className="submit button is-rounded">Login</button>
-          <button className="cancelBtn button is-rounded" aria-label="close" onClick={close}>Cancel</button>
+          <div className="column centered is-two-fifths">
+            <button className="submit button is-rounded">Login</button>
+            <button className="cancelBtn button is-rounded" aria-label="close" onClick={close}>Cancel</button>
+          </div>
         </div>
       </div>
     </div>
