@@ -3,12 +3,11 @@ import AddedStops from "../AddedStops";
 import "./style.scss";
 
 function AddBtn(props) {
-  var stops = props.stops;
+  var stops = [];
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
     addBtn.addEventListener("click", () => {
-      // stops = [...stops, document.querySelector(".addInput").value];
       stops.push(document.querySelector(".addInput").value);
       props.setStops(stops);
     });
