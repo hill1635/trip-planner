@@ -6,7 +6,7 @@ function StartBtn() {
   return (
     <div>
       <button className="startBtn button is-rounded is-success">
-        <i class="fas fa-plus plus"></i>
+        <i className="fas fa-plus plus"></i>
         Start a New Journey
       </button>
       <NewTripModal />

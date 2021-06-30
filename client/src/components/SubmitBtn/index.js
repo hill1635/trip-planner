@@ -17,7 +17,7 @@ function SubmitBtn(props) {
 
   return (
   <button className="submitBtn button is-info is-rounded mr-3">
-    <i class="fas fa-save mr-1"></i>
+    <i className="fas fa-save mr-1"></i>
     Save
     </button>
   );

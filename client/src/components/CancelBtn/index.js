@@ -5,7 +5,7 @@ function CancelBtn(props) {
 
   return (
     <button className="cancelBtn button is-danger is-outlined is-rounded ml-3" aria-label="close" onClick={props.close}>
-      <i class="fas fa-times mr-1"></i>
+      <i className="fas fa-times mr-1"></i>
       Cancel
     </button>
   );
