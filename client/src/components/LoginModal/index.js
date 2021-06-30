@@ -32,8 +32,11 @@ function LoginModal() {
             </div>
           </div>
           <div className="column centered is-two-fifths">
-            <button className="submit button is-rounded">Login</button>
-            <button className="cancelBtn button is-rounded" aria-label="close" onClick={close}>Cancel</button>
+            <button className="submit button is-rounded is-success">Login</button>
+            <button className="cancelBtn button is-danger is-outlined is-rounded" aria-label="close" onClick={close}>
+              <i className="fas fa-times mr-1"></i>
+              Cancel
+            </button>
           </div>
         </div>
       </div>
