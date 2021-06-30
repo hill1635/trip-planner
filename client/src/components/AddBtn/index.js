@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./style.scss";
 
 function AddBtn(props) {
-  var stops = [];
+  var stops = [...props.stops];
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
