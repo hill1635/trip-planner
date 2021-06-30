@@ -19,14 +19,18 @@ function SignUpModal() {
       <div className={state}>
         <div className="modal-background"></div>
         <div className="modal-card signupBox">
-          <div className="modal-header">
+          <div className="modal-header has-text-centered">
             <h1 className="title">Sign up</h1>
           </div>
           <div className="modal-content">
-            <p>Email:</p>
-            <input type="text"></input>
-            <p>Password:</p>
-            <input type="text"></input>
+            <div className="centered columns">
+              <div className="centered column is-half">
+                <input className="input is-rounded" type="text" placeholder="Email"></input>
+              </div>
+              <div className="centered column is-half">
+                <input className="input is-rounded"type="text" placeholder="Password"></input>
+              </div>
+            </div>
             <button className="submit">Sign up</button>
             <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
           </div>
