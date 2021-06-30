@@ -19,16 +19,20 @@ function LoginModal() {
     <div className={state}>
       <div className="modal-background"></div>
       <div className="modal-card loginBox">
-        <div className="modal-header">
+        <div className="modal-header has-text-centered">
           <h1 className="title">Login</h1>
         </div>
-        <div className="modal-content">
-          <p>Email:</p>
-          <input type="text"></input>
-          <p>Password:</p>
-          <input type="text"></input>
-          <button className="submit">Login</button>
-          <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
+        <div className="modal-content p-5">
+          <div className="centered columns">
+            <div className="centered column is-half">
+              <input className="input is-rounded" type="text" placeholder="Email"></input>
+            </div>
+            <div className="centered column is-half">
+              <input className="input is-rounded" type="text" placeholder="Password"></input>
+            </div>
+          </div>
+          <button className="submit button is-rounded">Login</button>
+          <button className="cancelBtn button is-rounded" aria-label="close" onClick={close}>Cancel</button>
         </div>
       </div>
     </div>
