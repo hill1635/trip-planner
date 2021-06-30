@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import AddedStops from "../AddedStops";
 import "./style.scss";
 
 function AddBtn(props) {
@@ -15,7 +14,6 @@ function AddBtn(props) {
 
   return (
     <div className="column">
-      <AddedStops stops={stops} />
       <button className="addBtn button is-rounded is-success m-3">
         <i className="fas fa-plus plus mr-1"></i>
         Add Stop
