@@ -5,7 +5,7 @@ function AddedStops(props) {
   return (
     <div className="columns">
       {props.stops.map((stop) => (
-        <div className="column">
+        <div className="column" key={stop}>
           <p>{stop}</p>
         </div>
       ))}
