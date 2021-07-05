@@ -5,13 +5,16 @@ function SubmitBtn(props) {
 
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
+
     submitBtn.addEventListener("click", () => {
-      props.setParams({
+      var trip = {
         startDate: document.querySelector(".startDate").value,
         endDate: document.querySelector(".endDate").value,
         startLocation: document.querySelector(".startLocation").value,
-        endLocation: document.querySelector(".endLocation").value
-      });
+        endLocation: document.querySelector(".endLocation").value,
+        stops: props.stops
+      };
+      console.log("trip: ", trip);
     });
   });
 

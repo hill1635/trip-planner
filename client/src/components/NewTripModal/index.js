@@ -7,13 +7,7 @@ import "./style.scss";
 
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
-  const [params, setParams] = useState({});
   const [stops, setStops] = useState([]);
-
-  var trip = {
-    params: params,
-    stops: stops,
-  };
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
@@ -57,7 +51,7 @@ function NewTripModal() {
             <input type="text" placeholder="Add Stop" className="addInput input is-rounded"></input>
             <AddBtn stops={stops} setStops={(e) => setStops(e)} />
           </div>
-          <SubmitBtn params={params} setParams={(e) => setParams(e)} />
+          <SubmitBtn stops={stops} />
           <CancelBtn close={close} />
         </div>
       </div>
