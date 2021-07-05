@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AddBtn from "../AddBtn";
 import AddedStops from "../AddedStops";
 import SubmitBtn from "../SubmitBtn";
 import CancelBtn from "../CancelBtn";
@@ -46,11 +45,7 @@ function NewTripModal() {
               </div>
             </div>
           </div>
-          <div className="column is-two-fifths centered">
-            <AddedStops stops={stops}/>
-            <input type="text" placeholder="Add Stop" className="addInput input is-rounded"></input>
-            <AddBtn stops={stops} setStops={(e) => setStops(e)} />
-          </div>
+          <AddedStops stops={stops} setStops={setStops}/>
           <SubmitBtn stops={stops} />
           <CancelBtn close={close} />
         </div>
