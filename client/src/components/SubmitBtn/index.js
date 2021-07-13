@@ -17,6 +17,10 @@ function SubmitBtn(props) {
       for (let i = 0; i < trip.stops.length; i++) {
         legs.push([trip.startLocation, trip.stops[i]]);
         legs.push([trip.endLocation, trip.stops[i]]);
+        for (let j = i; j < trip.stops.length - 1; j++) {
+          legs.push([trip.stops[i], trip.stops[j + 1]]);
+        }
+        console.log(legs);
       }
     });
   });
