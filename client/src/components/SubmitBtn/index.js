@@ -21,6 +21,7 @@ function SubmitBtn(props) {
           trip.legs = [...trip.legs, [trip.stops[i], trip.stops[j + 1]]];
         }
       }
+      localStorage.setItem("newTrip", trip);
     });
   });
 
