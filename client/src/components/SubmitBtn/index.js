@@ -3,6 +3,21 @@ import API from "../../utils/API";
 import "./style.scss";
 
 function SubmitBtn(props) {
+  function renderCoordinates(name) {
+    API.searchCoordinates(name)
+      .then((res) => {
+        console.log(res);
+        // saveLocation = {
+        //   name: name,
+        //   coordinates: {
+        //     lat: res.data,
+        //     lng: res.data
+        //   }
+        // }
+      })
+      .catch((err) => console.log(err));
+  }
+
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
 
@@ -12,15 +27,16 @@ function SubmitBtn(props) {
         endDate: document.querySelector(".endDate").value,
         startLocation: {
           name: document.querySelector(".startLocation").value,
-          coordinates: { lat: "", lng: ""}
+          coordinates: { lat: "", lng: "" },
         },
         endLocation: {
           name: document.querySelector(".endLocation").value,
-          coordinates: { lat: "", lng: ""}
+          coordinates: { lat: "", lng: "" },
         },
         stops: props.stops,
-        legs: []
+        legs: [],
       };
+      renderCoordinates(trip.startLocation.name);
       for (let i = 0; i < trip.stops.length; i++) {
         trip.legs = [...trip.legs, [trip.startLocation, trip.stops[i]]];
         trip.legs = [...trip.legs, [trip.endLocation, trip.stops[i]]];
@@ -29,7 +45,7 @@ function SubmitBtn(props) {
         }
       }
       localStorage.setItem("newTrip", JSON.stringify(trip));
-      window.location = "/results";
+      // window.location = "/results";
     });
   });
 
