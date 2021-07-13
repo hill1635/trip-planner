@@ -4,7 +4,6 @@ import "./style.scss";
 function SubmitBtn(props) {
   useEffect(() => {
     var submitBtn = document.querySelector(".submitBtn");
-    var legs = [];
 
     submitBtn.addEventListener("click", () => {
       var trip = {
@@ -13,12 +12,13 @@ function SubmitBtn(props) {
         startLocation: document.querySelector(".startLocation").value,
         endLocation: document.querySelector(".endLocation").value,
         stops: props.stops,
+        legs: []
       };
       for (let i = 0; i < trip.stops.length; i++) {
-        legs.push([trip.startLocation, trip.stops[i]]);
-        legs.push([trip.endLocation, trip.stops[i]]);
+        trip.legs = [...trip.legs, [trip.startLocation, trip.stops[i]]];
+        trip.legs = [...trip.legs, [trip.endLocation, trip.stops[i]]];
         for (let j = i; j < trip.stops.length - 1; j++) {
-          legs.push([trip.stops[i], trip.stops[j + 1]]);
+          trip.legs = [...trip.legs, [trip.stops[i], trip.stops[j + 1]]];
         }
       }
     });
