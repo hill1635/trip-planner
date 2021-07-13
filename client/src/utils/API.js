@@ -1,6 +1,6 @@
 import axios from "axios";
 
-var apiKey = ""
+var apiKey = process.env.REACT_APP_MAPBOX_API_KEY;
 
 export default {
   searchCoordinates: function (search) {
