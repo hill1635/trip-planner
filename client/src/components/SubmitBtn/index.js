@@ -10,8 +10,14 @@ function SubmitBtn(props) {
       var trip = {
         startDate: document.querySelector(".startDate").value,
         endDate: document.querySelector(".endDate").value,
-        startLocation: document.querySelector(".startLocation").value,
-        endLocation: document.querySelector(".endLocation").value,
+        startLocation: {
+          name: document.querySelector(".startLocation").value,
+          coordinates: { lat: "", lng: ""}
+        },
+        endLocation: {
+          name: document.querySelector(".endLocation").value,
+          coordinates: { lat: "", lng: ""}
+        },
         stops: props.stops,
         legs: []
       };
