@@ -22,6 +22,7 @@ function SubmitBtn(props) {
         }
       }
       localStorage.setItem("newTrip", trip);
+      window.location = "/results";
     });
   });
 
