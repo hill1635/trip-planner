@@ -7,7 +7,10 @@ function AddBtn(props) {
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
     addBtn.addEventListener("click", () => {
-      stops.push(document.querySelector(".addInput").value);
+      stops.push({
+        name: document.querySelector(".addInput").value,
+        coordinates: { lat: "", lng: ""}
+      });
       props.setStops(stops);
     });
   });
