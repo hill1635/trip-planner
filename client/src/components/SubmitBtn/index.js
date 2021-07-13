@@ -20,7 +20,6 @@ function SubmitBtn(props) {
         for (let j = i; j < trip.stops.length - 1; j++) {
           legs.push([trip.stops[i], trip.stops[j + 1]]);
         }
-        console.log(legs);
       }
     });
   });
