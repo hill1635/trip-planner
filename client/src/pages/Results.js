@@ -1,4 +1,5 @@
 import React from "react";
+import API from "../utils/API";
 
 function Results() {
     var newTrip = JSON.parse(localStorage.getItem("newTrip"));
