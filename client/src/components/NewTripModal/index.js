@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AddedStops from "./AddedStops";
+import AddBtn from "./AddBtn";
 import SubmitBtn from "./SubmitBtn";
 import CancelBtn from "./CancelBtn";
 import "./style.scss";
 
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
-  const [stops, setStops] = useState([]);
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
@@ -28,25 +27,10 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
-            <div className="columns">
-              <div className="column centered mr-0 is-one-third">
-                <input type="text" placeholder="Start Date" className="startDate input is-rounded"></input>
-              </div>
-              <div className="column centered ml-0 is-one-third">
-                <input type="text" placeholder="End Date" className="endDate input is-rounded"></input>
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column mr-0 centered is-one-third">
-                <input type="text" placeholder="Start Location"  className="startLocation input is-rounded"></input>
-              </div>
-              <div className="column ml-0 centered is-one-third">
-                <input type="text" placeholder="End Location" className="endLocation input is-rounded"></input>
-              </div>
-            </div>
+            <input type="text" placeholder="Start Location"  className="startLocation input is-rounded"></input>
+            <input type="text" placeholder="Add Stop" className="endLocation input is-rounded"></input>
           </div>
-          <AddedStops stops={stops} setStops={setStops}/>
-          <SubmitBtn stops={stops} />
+          <SubmitBtn/>
           <CancelBtn close={close} />
         </div>
       </div>
