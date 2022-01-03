@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import AddedStops from "../AddedStops";
-import SubmitBtn from "../SubmitBtn";
-import CancelBtn from "../CancelBtn";
+import AddedStops from "./AddedStops";
+import SubmitBtn from "./SubmitBtn";
+import CancelBtn from "./CancelBtn";
 import "./style.scss";
 
 function NewTripModal() {
