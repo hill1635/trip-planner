@@ -27,8 +27,7 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
-            <input type="text" placeholder="Start Location"  className="startLocation input is-rounded"></input>
-            <input type="text" placeholder="Add Stop" className="endLocation input is-rounded"></input>
+            <AddBtn/>
           </div>
           <SubmitBtn/>
           <CancelBtn close={close} />
