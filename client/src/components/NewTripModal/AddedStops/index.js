@@ -11,7 +11,7 @@ function AddedStops(props) {
         <input type="text" className="is-rounded" value={stop}>
         </input>
       ))}
-      <input type="text" placeholder="Add Stop" className="addStop is-rounded"></input>
+      <input type="text" placeholder="Add Destination" className="addDestination is-rounded"></input>
       <AddBtn stops={stops} setStops={props.setStops}/>
     </div>
   );
