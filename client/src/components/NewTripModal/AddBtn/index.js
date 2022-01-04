@@ -4,6 +4,22 @@ import "./style.scss";
 
 function AddBtn(props) {
   var stops = [...props.stops];
+  var orderedStops = {
+    first: "",
+    waypoints: [],
+    last: "",
+  };
+
+  function convertFormat(value) {
+    var convertedStr = value.split(", ").join(",").split(" ").join("+");
+    if (value === orderedStops.first) {
+      orderedStops.first = convertedStr;
+    } else if (value === orderedStops.last) {
+      orderedStops.last = convertedStr;
+    } else {
+      orderedStops.waypoints.push(convertedStr);
+    }
+  }
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
@@ -12,8 +28,22 @@ function AddBtn(props) {
       var value = document.querySelector(".addDestination").value;
 
       stops.push(value);
-      props.setStops(stops);
 
+      stops.forEach((stop) => {
+        if (stops.indexOf(stop) === 0) {
+          orderedStops.first = stop;
+          convertFormat(orderedStops.first);
+        } else if (stops.indexOf(stop) === stops.length - 1) {
+          orderedStops.last = stop;
+          convertFormat(orderedStops.last);
+        } else {
+          convertFormat(stop);
+          // orderedStops.waypoints.push(stop);
+        }
+      });
+
+      props.setStops(stops);
+      console.log(orderedStops);
       setTimeout(function () {
         document.querySelector(".addDestination").value = "";
       }, 1);
