@@ -8,6 +8,13 @@ function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [stops, setStops] = useState([]);
 
+  var googleMapsAPIKey = process.env.GOOGLE_MAPS_API_KEY;
+  var googleMapsSRC =
+    "https://www.google.com/maps/embed/v1/directions?key=" +
+    googleMapsAPIKey +
+    "&PARAMETERS";
+    // console.log(stops);
+
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
     startBtn.addEventListener("click", () => {
@@ -28,9 +35,19 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
-            <AddedStops stops={stops} setStops={setStops}/>
+            <AddedStops stops={stops} setStops={setStops} />
           </div>
-          <SubmitBtn/>
+          {/* <div className="column"> */}
+            {/* <iframe
+              width="450"
+              height="250"
+              frameborder="0"
+              style="border:0"
+              src={googleMapsSRC}
+              allowfullscreen
+            ></iframe> */}
+          {/* </div> */}
+          <SubmitBtn />
           <CancelBtn close={close} />
         </div>
       </div>
