@@ -8,7 +8,7 @@ function AddedStops(props) {
   return (
     <div>
       {stops.map((stop) => (
-        <input type="text" className="is-rounded" value={stop}>
+        <input type="text" className="is-rounded" value={stop.name}>
         </input>
       ))}
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded"></input>
