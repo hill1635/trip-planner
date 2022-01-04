@@ -5,30 +5,15 @@ import "./style.scss";
 function AddBtn(props) {
   var stops = [...props.stops];
 
-  function renderCoordinates(name, saveLocation) {
-    API.searchCoordinates(name)
-      .then((res) => {
-        saveLocation.coordinates = {
-          lat: res.data.features[0].geometry.coordinates[1],
-          lng: res.data.features[0].geometry.coordinates[0],
-        };
-      })
-      .catch((err) => console.log(err));
-  }
-
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
 
     addBtn.addEventListener("click", () => {
-      var value = { 
-        name: document.querySelector(".addDestination").value,
-        coordinates: {},
-      };
+      var value = document.querySelector(".addDestination").value;
 
-      renderCoordinates(value.name, value);
       stops.push(value);
       props.setStops(stops);
-      
+
       setTimeout(function () {
         document.querySelector(".addDestination").value = "";
       }, 1);

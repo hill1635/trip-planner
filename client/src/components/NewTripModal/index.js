@@ -13,7 +13,7 @@ function NewTripModal() {
     "https://www.google.com/maps/embed/v1/directions?key=" +
     googleMapsAPIKey +
     "&PARAMETERS";
-    // console.log(stops);
+    console.log(stops);
 
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
