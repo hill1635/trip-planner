@@ -28,6 +28,7 @@ function NewTripModal() {
 
   function close() {
     setState("modal newTripModal");
+    setStops([]);
   }
 
   return (
