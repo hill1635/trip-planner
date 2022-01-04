@@ -8,7 +8,7 @@ function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [stops, setStops] = useState([]);
 
-  var googleMapsAPIKey = process.env.GOOGLE_MAPS_API_KEY;
+  var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
   var googleMapsSRC =
     "https://www.google.com/maps/embed/v1/directions?key=" +
     googleMapsAPIKey +
@@ -17,9 +17,10 @@ function NewTripModal() {
     "&destination=" + "";
 
     console.log(stops);
-
-  useEffect(() => {
-    var startBtn = document.querySelector(".startBtn");
+    
+    useEffect(() => {
+      console.log(googleMapsAPIKey);
+      var startBtn = document.querySelector(".startBtn");
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
     });
