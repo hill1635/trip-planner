@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddBtn from "./AddBtn";
+import AddedStops from "./AddedStops";
 import SubmitBtn from "./SubmitBtn";
 import CancelBtn from "./CancelBtn";
 import "./style.scss";
@@ -27,6 +28,7 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
+            <AddedStops/>
             <AddBtn/>
           </div>
           <SubmitBtn/>
