@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import "./style.scss";
 
 function AddBtn(props) {
+  var stops = [...props.stops];
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
     addBtn.addEventListener("click", () => {
-      // Add location to array
+      var value = document.querySelector(".addStop").value;
+      stops.push(value);
+      props.setStops(stops);
     });
   });
 
