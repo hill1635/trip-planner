@@ -7,19 +7,23 @@ import "./style.scss";
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [stops, setStops] = useState([]);
+  const [ordered, setOrdered] = useState({
+    first: "",
+    waypoints: [],
+    last: "",
+  });
 
   var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
   var googleMapsSRC =
     "https://www.google.com/maps/embed/v1/directions?key=" +
     googleMapsAPIKey +
-    "&origin=" + "" +
-    "&waypoints=" + "" +
-    "&destination=" + "";
+    "&origin=" + ordered.first +
+    "&waypoints=" + ordered.waypoints.join("|") +
+    "&destination=" + ordered.last;
 
-    console.log(stops);
+    console.log(googleMapsSRC);
     
     useEffect(() => {
-      console.log(googleMapsAPIKey);
       var startBtn = document.querySelector(".startBtn");
     startBtn.addEventListener("click", () => {
       setState("modal newTripModal is-active");
@@ -40,7 +44,7 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
-            <AddedStops stops={stops} setStops={setStops} />
+            <AddedStops stops={stops} setStops={setStops} setOrdered={setOrdered}/>
           </div>
           {/* <div className="column"> */}
             {/* <iframe

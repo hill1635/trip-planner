@@ -12,7 +12,7 @@ function AddedStops(props) {
         </input>
       ))}
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded"></input>
-      <AddBtn stops={stops} setStops={props.setStops}/>
+      <AddBtn stops={stops} setStops={props.setStops} setOrdered={props.setOrdered}/>
     </div>
   );
 }

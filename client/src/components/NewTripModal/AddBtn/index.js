@@ -14,10 +14,13 @@ function AddBtn(props) {
     var convertedStr = value.split(", ").join(",").split(" ").join("+");
     if (value === orderedStops.first) {
       orderedStops.first = convertedStr;
+      props.setOrdered(orderedStops);
     } else if (value === orderedStops.last) {
       orderedStops.last = convertedStr;
+      props.setOrdered(orderedStops);
     } else {
       orderedStops.waypoints.push(convertedStr);
+      props.setOrdered(orderedStops);
     }
   }
 
