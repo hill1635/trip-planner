@@ -12,7 +12,10 @@ function NewTripModal() {
   var googleMapsSRC =
     "https://www.google.com/maps/embed/v1/directions?key=" +
     googleMapsAPIKey +
-    "&PARAMETERS";
+    "&origin=" + "" +
+    "&waypoints=" + "" +
+    "&destination=" + "";
+
     console.log(stops);
 
   useEffect(() => {
