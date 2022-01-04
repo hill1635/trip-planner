@@ -18,15 +18,17 @@ function AddBtn(props) {
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
+
     addBtn.addEventListener("click", () => {
       var value = { 
         name: document.querySelector(".addDestination").value,
         coordinates: {},
       };
+
       renderCoordinates(value.name, value);
       stops.push(value);
       props.setStops(stops);
-      console.log(stops);
+      
       setTimeout(function () {
         document.querySelector(".addDestination").value = "";
       }, 1);
