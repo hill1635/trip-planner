@@ -5,28 +5,43 @@ import "./style.scss";
 function AddBtn(props) {
   var stops = [...props.stops];
   var orderedStops = {
-    first: "",
+    first: null,
     waypoints: [],
-    last: "",
+    last: null,
   };
+
+  function generateSRC() {
+    var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
+    var src = "https://www.google.com/maps/embed/v1/directions?key=" + googleMapsAPIKey;
+    if (orderedStops.first !== null && orderedStops.last === null) {
+      src = "https://www.google.com/maps/embed/v1/place?key=" + googleMapsAPIKey + "&q=" + orderedStops.first;
+    }
+    if (orderedStops.last !== null) {
+      src += "&origin=" + orderedStops.first + "&destination=" + orderedStops.last;
+    }
+    if (orderedStops.waypoints.length > 0) {
+       src += "&waypoints=" + orderedStops.waypoints.join("|");
+    }
+    props.setSRC(src);
+  }
 
   function convertFormat(value) {
     var convertedStr = value.split(", ").join(",").split(" ").join("+");
     if (value === orderedStops.first) {
       orderedStops.first = convertedStr;
-      props.setOrdered(orderedStops);
+      // props.setOrdered(orderedStops);
     } else if (value === orderedStops.last) {
       orderedStops.last = convertedStr;
-      props.setOrdered(orderedStops);
+      // props.setOrdered(orderedStops);
     } else {
       orderedStops.waypoints.push(convertedStr);
-      props.setOrdered(orderedStops);
+      // props.setOrdered(orderedStops);
     }
   }
 
   useEffect(() => {
     var addBtn = document.querySelector(".addBtn");
-
+    
     addBtn.addEventListener("click", () => {
       var value = document.querySelector(".addDestination").value;
 
@@ -46,7 +61,7 @@ function AddBtn(props) {
       });
 
       props.setStops(stops);
-      console.log(orderedStops);
+      generateSRC();
       setTimeout(function () {
         document.querySelector(".addDestination").value = "";
       }, 1);

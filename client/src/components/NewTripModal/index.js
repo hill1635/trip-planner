@@ -7,21 +7,18 @@ import "./style.scss";
 function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [stops, setStops] = useState([]);
-  const [ordered, setOrdered] = useState({
-    first: "",
-    waypoints: [],
-    last: "",
-  });
+  const [src, setSRC] = useState("");
 
-  var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  var googleMapsSRC =
-    "https://www.google.com/maps/embed/v1/directions?key=" +
-    googleMapsAPIKey +
-    "&origin=" + ordered.first +
-    "&waypoints=" + ordered.waypoints.join("|") +
-    "&destination=" + ordered.last;
+  // var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
+  // var googleMapsSRC =
+  //   "https://www.google.com/maps/embed/v1/directions?key=" +
+  //   googleMapsAPIKey +
+  //   "&origin=" + ordered.first +
+  //   "&waypoints=" + ordered.waypoints.join("|") +
+  //   "&destination=" + ordered.last;
 
-    console.log(googleMapsSRC);
+  var test = src;
+  console.log("src: ", test);
     
     useEffect(() => {
       var startBtn = document.querySelector(".startBtn");
@@ -44,7 +41,7 @@ function NewTripModal() {
         </div>
         <div className="modal-content column is-full">
           <div className="column">
-            <AddedStops stops={stops} setStops={setStops} setOrdered={setOrdered}/>
+            <AddedStops stops={stops} setStops={setStops} setSRC={setSRC}/>
           </div>
           {/* <div className="column"> */}
             {/* <iframe
