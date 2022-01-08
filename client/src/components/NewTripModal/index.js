@@ -9,14 +9,6 @@ function NewTripModal() {
   const [stops, setStops] = useState([]);
   const [src, setSRC] = useState("");
 
-  // var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  // var googleMapsSRC =
-  //   "https://www.google.com/maps/embed/v1/directions?key=" +
-  //   googleMapsAPIKey +
-  //   "&origin=" + ordered.first +
-  //   "&waypoints=" + ordered.waypoints.join("|") +
-  //   "&destination=" + ordered.last;
-
   console.log("src: ", src);
     
     useEffect(() => {
