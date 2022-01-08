@@ -35,12 +35,12 @@ function NewTripModal() {
             <AddedStops stops={stops} setStops={setStops} setSRC={setSRC}/>
           </div>
           <div className="column">
-            <iframe
+            {/* <iframe
               width="450"
               height="250"
               src={src}
               allowfullscreen
-            ></iframe>
+            ></iframe> */}
           </div>
           <SubmitBtn />
           <CancelBtn close={close} />
