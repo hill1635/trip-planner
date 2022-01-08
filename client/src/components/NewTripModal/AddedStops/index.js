@@ -13,7 +13,7 @@ function AddedStops(props) {
         <div className="is-inline-flex">
         <input type="text" className="is-rounded" placeholder={stop} key={stop}>
         </input>
-        <RemoveBtn/>
+        <RemoveBtn setStops={props.setStops} stops={stops}/>
         </div>
       ))}
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded" onChange={e => setInput(e.target.value)}></input>
