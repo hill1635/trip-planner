@@ -17,8 +17,7 @@ function NewTripModal() {
   //   "&waypoints=" + ordered.waypoints.join("|") +
   //   "&destination=" + ordered.last;
 
-  var test = src;
-  console.log("src: ", test);
+  console.log("src: ", src);
     
     useEffect(() => {
       var startBtn = document.querySelector(".startBtn");
@@ -39,20 +38,18 @@ function NewTripModal() {
         <div className="modal-header">
           <h1 className="title">New Journey</h1>
         </div>
-        <div className="modal-content column is-full">
+        <div className="modal-content columns is-full">
           <div className="column">
             <AddedStops stops={stops} setStops={setStops} setSRC={setSRC}/>
           </div>
-          {/* <div className="column"> */}
-            {/* <iframe
+          <div className="column">
+            <iframe
               width="450"
               height="250"
-              frameborder="0"
-              style="border:0"
-              src={googleMapsSRC}
+              src={src}
               allowfullscreen
-            ></iframe> */}
-          {/* </div> */}
+            ></iframe>
+          </div>
           <SubmitBtn />
           <CancelBtn close={close} />
         </div>
