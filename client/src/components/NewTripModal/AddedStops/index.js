@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AddBtn from "../AddBtn";
+import RemoveBtn from "../RemoveBtn";
 import "./style.scss";
 
 function AddedStops(props) {
@@ -9,8 +10,11 @@ function AddedStops(props) {
   return (
     <div>
       {stops.map((stop) => (
+        <div className="is-inline-flex">
         <input type="text" className="is-rounded" placeholder={stop} key={stop}>
         </input>
+        <RemoveBtn/>
+        </div>
       ))}
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded" onChange={e => setInput(e.target.value)}></input>
       <AddBtn stops={stops} input={input} setStops={props.setStops} setSRC={props.setSRC}/>
