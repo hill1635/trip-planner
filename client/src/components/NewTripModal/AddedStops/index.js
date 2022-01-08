@@ -11,7 +11,7 @@ function AddedStops(props) {
     <div>
       {stops.map((stop) => (
         <div className="is-inline-flex">
-        <input type="text" className="is-rounded" placeholder={stop} key={stop}>
+        <input type="text" className="is-rounded" value={stop} key={stop}>
         </input>
         <RemoveBtn setStops={props.setStops} stops={stops}/>
         </div>
