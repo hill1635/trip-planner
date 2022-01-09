@@ -29,18 +29,18 @@ function AddedStops(props) {
  
   // **ISSUE HERE**
   function convertFormat(object) {
-    // var convertedObject = {};
+    var convertedObject = {};
     
-    // if (object.first !== null) {
-    //   convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
-    // }
-    // if (object.last !== null) {
-    //   convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
-    // }
-    // if (object.waypoints.length > 0) {
-    //   convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
-    // }
-    // generateSRC(convertedObject);
+    if (object.first !== null) {
+      convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
+    }
+    if (object.last !== null) {
+      convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
+    }
+    if (object.waypoints.length > 0) {
+      convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
+    }
+    generateSRC(convertedObject);
   }
 
   function editStops(array) {
@@ -59,7 +59,7 @@ function AddedStops(props) {
       newArray.splice(newArray.length - 1, 1);
       newOrdered.waypoints = [...newArray];
     }
-    
+
     convertFormat(newOrdered);
   }
 
@@ -74,7 +74,7 @@ function AddedStops(props) {
     var updatedStops = [...props.stops];
     updatedStops.splice(arrayIndex, 1);
     props.setStops(updatedStops);
-    console.log(updatedStops);
+    editStops(updatedStops);
   }
 
   return (
