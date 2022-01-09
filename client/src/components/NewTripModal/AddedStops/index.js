@@ -11,6 +11,7 @@ function AddedStops(props) {
     last: null,
   });
   var stops = [...props.stops];
+  var index = 0;
 
   function generateSRC(object) {
     var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -76,16 +77,18 @@ function AddedStops(props) {
     editStops();
   }
 
-
   return (
     <div>
+      <ul>
       {stops.map((stop) => (
-        <div className="is-inline-flex">
-        <input type="text" className="is-rounded" value={stop} key={stop}>
-        </input>
+        <div className="is-inline-flex" key={index++}>
+        {/* <input type="text" className="is-rounded" value={stop} key={stop} onChange={e => test(e.target.value)}> */}
+          <p>{stop}</p>
+        {/* </input> */}
         <RemoveBtn setStops={props.setStops} stops={stops}/>
         </div>
       ))}
+      </ul>
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded" onChange={e => setInput(e.target.value)}></input>
       <AddBtn stops={stops} setStops={props.setStops} input={input} editStops={editStops}/>
     </div>
