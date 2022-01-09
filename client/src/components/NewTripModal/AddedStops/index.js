@@ -12,12 +12,12 @@ function AddedStops(props) {
     var starterSRC = "https://www.google.com/maps/embed/v1/" + mode + googleMapsAPIKey;
     var waypoints = object.waypoints.length > 0 ? ("&waypoints=" + object.waypoints) : ("");
 
-    var exportSRC = (object.first !== null && object.last === null) ? 
-    (mode = "place", starterSRC += "&q=" + object.first) : 
-      (object.last !== null ? 
+    var exportSRC = (object.origin !== null && object.destination === null) ? 
+    (mode = "place", starterSRC += "&q=" + object.origin) : 
+      (object.destination !== null ? 
         (
           mode = "directions", 
-          starterSRC += "&origin=" + object.first + "&destination=" + object.last + waypoints
+          starterSRC += "&origin=" + object.origin + "&destination=" + object.destination + waypoints
         ) : (""));
         
     props.setSRC(exportSRC);
@@ -26,11 +26,11 @@ function AddedStops(props) {
   function convertFormat(object) {
     var convertedObject = {};
     
-    if (object.first !== null) {
-      convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
+    if (object.origin !== null) {
+      convertedObject.origin = object.origin.split(", ").join(",").split(" ").join("+");
     }
-    if (object.last !== null) {
-      convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
+    if (object.destination !== null) {
+      convertedObject.destination = object.destination.split(", ").join(",").split(" ").join("+");
     }
     if (object.waypoints.length > 0) {
       convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
@@ -43,19 +43,19 @@ function AddedStops(props) {
 
   function editStops(array) {
     var newOrdered = {
-      first: "",
-      last: "",
+      origin: "",
+      destination: "",
       waypoints: []
     };
 
     if (array.length === 1) {
-      newOrdered.first = array[0];
+      newOrdered.origin = array[0];
     } else if (array.length === 2) {
-      newOrdered.first = array[0];
-      newOrdered.last = array[1];
+      newOrdered.origin = array[0];
+      newOrdered.destination = array[1];
     } else if (array.length > 2) {
-      newOrdered.first = array[0];
-      newOrdered.last = array[array.length - 1];
+      newOrdered.origin = array[0];
+      newOrdered.destination = array[array.length - 1];
       var newArray = [...array];
       newArray.splice(0, 1)
       newArray.splice(newArray.length - 1, 1);
