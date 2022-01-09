@@ -10,19 +10,16 @@ function AddedStops(props) {
     var mode = "";
     var googleMapsAPIKey = "?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
     var starterSRC = "https://www.google.com/maps/embed/v1/" + mode + googleMapsAPIKey;
-    var exportSRC = "";
+    var waypoints = object.waypoints.length > 0 ? ("&waypoints=" + object.waypoints) : ("");
 
-    if (object.first !== null && object.last === null) {
-      mode = "place";
-      exportSRC = "&q=" + starterSRC + object.first;
-    }
-    if (object.last !== null) {
-      mode = "directions";
-      exportSRC = starterSRC + "&origin=" + object.first + "&destination=" + object.last;
-    }
-    if (object.waypoints.length > 0) {
-      exportSRC += "&waypoints=" + object.waypoints;
-    }
+    var exportSRC = (object.first !== null && object.last === null) ? 
+    (mode = "place", starterSRC += "&q=" + object.first) : 
+      (object.last !== null ? 
+        (
+          mode = "directions", 
+          starterSRC += "&origin=" + object.first + "&destination=" + object.last + waypoints
+        ) : (""));
+        
     props.setSRC(exportSRC);
   }
  
@@ -37,6 +34,8 @@ function AddedStops(props) {
     }
     if (object.waypoints.length > 0) {
       convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
+    } else {
+      convertedObject.waypoints = [];
     }
 
     generateSRC(convertedObject);
