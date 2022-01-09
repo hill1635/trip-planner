@@ -27,24 +27,25 @@ function AddedStops(props) {
     props.setSRC(src);
   }
  
+  // **ISSUE HERE**
   function convertFormat(object) {
-    var convertedObject = {};
+    // var convertedObject = {};
     
-    if (object.first !== null) {
-      convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
-    }
-    if (object.last !== null) {
-      convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
-    }
-    if (object.waypoints.length > 0) {
-      convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
-    }
-    generateSRC(convertedObject);
+    // if (object.first !== null) {
+    //   convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
+    // }
+    // if (object.last !== null) {
+    //   convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
+    // }
+    // if (object.waypoints.length > 0) {
+    //   convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
+    // }
+    // generateSRC(convertedObject);
   }
 
   function editStops(array) {
     var newOrdered = {};
-    
+
     if (array.length === 1) {
       newOrdered.first = array[0];
     } else if (array.length === 2) {
@@ -72,11 +73,13 @@ function AddedStops(props) {
     <div>
       <ul>
       {props.stops.map((stop) => (
-        <div className="is-inline-flex" key={index++}>
+        <div className="is-inline-flex" key={index++} index={index}>
         {/* <input type="text" className="is-rounded" value={stop} key={stop} onChange={e => test(e.target.value)}> */}
           <p>{stop}</p>
         {/* </input> */}
-        <RemoveBtn setStops={props.setStops} stops={stopsArray}/>
+        <button>
+          <i className="fas fa-times"></i>
+         </button>
         </div>
       ))}
       </ul>
