@@ -11,8 +11,7 @@ function Navbar() {
           <h1 className="title">Odyssey</h1>
         </span>
 
-        <a
-          role="button"
+        <button
           className="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
@@ -21,7 +20,7 @@ function Navbar() {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </button>
       </div>
 
       <div id="navbarBasicExample" className="navbar-menu">
