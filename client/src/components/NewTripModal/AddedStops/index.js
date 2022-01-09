@@ -23,10 +23,10 @@ function AddedStops(props) {
     if (object.waypoints.length > 0) {
       src += "&waypoints=" + object.waypoints;
     }
-    props.setSRC(src);
+    console.log(src);
+    // props.setSRC(src);
   }
  
-  // **ISSUE HERE**
   function convertFormat(object) {
     var convertedObject = {};
     
@@ -39,11 +39,16 @@ function AddedStops(props) {
     if (object.waypoints.length > 0) {
       convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
     }
+
     generateSRC(convertedObject);
   }
 
   function editStops(array) {
-    var newOrdered = {};
+    var newOrdered = {
+      first: "",
+      last: "",
+      waypoints: []
+    };
 
     if (array.length === 1) {
       newOrdered.first = array[0];
