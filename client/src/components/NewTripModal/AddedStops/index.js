@@ -70,10 +70,11 @@ function AddedStops(props) {
   }
 
   function removeStop(event) {
-    var index = props.stops.indexOf(stopsArray);
-    var updatedStops = [...stopsArray];
-    updatedStops.splice(index, 1);
+    var arrayIndex = event.parentNode.parentNode.getAttribute("index");
+    var updatedStops = [...props.stops];
+    updatedStops.splice(arrayIndex, 1);
     props.setStops(updatedStops);
+    console.log(updatedStops);
   }
 
   return (
