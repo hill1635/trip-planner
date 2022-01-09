@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import AddBtn from "../AddBtn";
 import RemoveBtn from "../RemoveBtn";
 import "./style.scss";
 
 function AddedStops(props) {
   const [input, setInput] = useState("");
-  const [ordered, setOrdered] = useState({
-    first: null,
-    waypoints: [],
-    last: null,
-  });
-  var stops = [...props.stops];
+  var stopsArray = [...props.stops];
   var index = 0;
 
   function generateSRC(object) {
@@ -34,11 +28,7 @@ function AddedStops(props) {
   }
  
   function convertFormat(object) {
-    var convertedObject = {
-      first: "",
-      last: "",
-      waypoints: "",
-    };
+    var convertedObject = {};
     
     if (object.first !== null) {
       convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
@@ -49,48 +39,52 @@ function AddedStops(props) {
     if (object.waypoints.length > 0) {
       convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
     }
-    console.log(object);
     generateSRC(convertedObject);
   }
 
-  function editStops() {
-    var newOrdered = ordered;
+  function editStops(array) {
+    var newOrdered = {};
     
-    stops.forEach((stop) => {
-      if (stops.indexOf(stop) === 0) {
-        newOrdered.first = stop;
-      } else if (stops.indexOf(stop) === stops.length - 1) {
-        newOrdered.last = stop;
-      } else {
-        if (!newOrdered.waypoints.includes(stop)) {
-        newOrdered.waypoints.push(stop);
-        }
-      }
-    });
-    setOrdered(newOrdered);
-    convertFormat(ordered);
-    props.setStops(stops);
+    if (array.length === 1) {
+      newOrdered.first = array[0];
+    } else if (array.length === 2) {
+      newOrdered.first = array[0];
+      newOrdered.last = array[1];
+    } else if (array.length > 2) {
+      newOrdered.first = array[0];
+      newOrdered.last = array[array.length - 1];
+      var newArray = [...array];
+      newArray.splice(0, 1)
+      newArray.splice(newArray.length - 1, 1);
+      newOrdered.waypoints = [...newArray];
+    }
+    
+    convertFormat(newOrdered);
   }
 
   function add() {
-    props.setStops([...stops, props.input]);
-    editStops();
+    props.setStops([...stopsArray, input]);
+    var updatedArray = [...props.stops, input];
+    editStops(updatedArray);
   }
 
   return (
     <div>
       <ul>
-      {stops.map((stop) => (
+      {props.stops.map((stop) => (
         <div className="is-inline-flex" key={index++}>
         {/* <input type="text" className="is-rounded" value={stop} key={stop} onChange={e => test(e.target.value)}> */}
           <p>{stop}</p>
         {/* </input> */}
-        <RemoveBtn setStops={props.setStops} stops={stops}/>
+        <RemoveBtn setStops={props.setStops} stops={stopsArray}/>
         </div>
       ))}
       </ul>
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded" onChange={e => setInput(e.target.value)}></input>
-      <AddBtn stops={stops} setStops={props.setStops} input={input} editStops={editStops}/>
+      <button className="addBtn button is-rounded is-success" onClick={add}>
+        <i className="fas fa-plus plus m-0 p-0"></i>
+        Add Destination
+      </button>
     </div>
   );
 }
