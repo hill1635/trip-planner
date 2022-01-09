@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import RemoveBtn from "../RemoveBtn";
 import "./style.scss";
 
 function AddedStops(props) {
