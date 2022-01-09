@@ -3,59 +3,76 @@ import "./style.scss";
 
 function AddBtn(props) {
   var stops = [...props.stops];
-  var orderedStops = {
-    first: null,
-    waypoints: [],
-    last: null,
-  };
+  var ordered = props.ordered;
 
-  function generateSRC() {
+  function generateSRC(object) {
     var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
-    var src = "https://www.google.com/maps/embed/v1/directions?key=" + googleMapsAPIKey;
-    if (orderedStops.first !== null && orderedStops.last === null) {
-      src = "https://www.google.com/maps/embed/v1/place?key=" + googleMapsAPIKey + "&q=" + orderedStops.first;
+    var src =
+      "https://www.google.com/maps/embed/v1/directions?key=" + googleMapsAPIKey;
+    if (object.first !== null && object.last === null) {
+      src =
+        "https://www.google.com/maps/embed/v1/place?key=" +
+        googleMapsAPIKey +
+        "&q=" +
+        object.first;
     }
-    if (orderedStops.last !== null) {
-      src += "&origin=" + orderedStops.first + "&destination=" + orderedStops.last;
+    if (object.last !== null) {
+      src += "&origin=" + object.first + "&destination=" + object.last;
     }
-    if (orderedStops.waypoints.length > 0) {
-       src += "&waypoints=" + orderedStops.waypoints.join("|");
+    if (object.waypoints.length > 0) {
+      src += "&waypoints=" + object.waypoints;
     }
+    console.log(src);
     props.setSRC(src);
   }
-
-  function convertFormat(value) {
-    var convertedStr = value.split(", ").join(",").split(" ").join("+");
-    if (value === orderedStops.first) {
-      orderedStops.first = convertedStr;
-    } else if (value === orderedStops.last) {
-      orderedStops.last = convertedStr;
-    } else {
-      orderedStops.waypoints.push(convertedStr);
+ 
+  function convertFormat(object) {
+    var convertedObject = {
+      first: "",
+      last: "",
+      waypoints: "",
+    };
+    
+    if (object.first !== null) {
+      convertedObject.first = object.first.split(", ").join(",").split(" ").join("+");
     }
+    if (object.last !== null) {
+      convertedObject.last = object.last.split(", ").join(",").split(" ").join("+");
+    }
+    if (object.waypoints.length > 0) {
+      console.log(object.waypoints);
+      convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
+    }
+    generateSRC(convertedObject);
   }
 
-  function addStop() {
+  function add() {
     stops.push(props.input);
+    editStop();
+  }
 
+  function editStop() {
+    var newOrdered = ordered;
+    
     stops.forEach((stop) => {
       if (stops.indexOf(stop) === 0) {
-        orderedStops.first = stop;
-        convertFormat(orderedStops.first);
+        newOrdered.first = stop;
       } else if (stops.indexOf(stop) === stops.length - 1) {
-        orderedStops.last = stop;
-        convertFormat(orderedStops.last);
+        newOrdered.last = stop;
       } else {
-        convertFormat(stop);
+        if (!newOrdered.waypoints.includes(stop)) {
+        newOrdered.waypoints.push(stop);
+        }
       }
     });
-
+    console.log(newOrdered.waypoints);
+    props.setOrdered(newOrdered);
+    convertFormat(props.ordered);
     props.setStops(stops);
-    generateSRC();
   }
 
   return (
-    <button className="addBtn button is-rounded is-success" onClick={addStop}>
+    <button className="addBtn button is-rounded is-success" onClick={add}>
       <i className="fas fa-plus plus m-0 p-0"></i>
       Add Destination
     </button>

@@ -5,6 +5,12 @@ import "./style.scss";
 
 function AddedStops(props) {
   const [input, setInput] = useState("");
+  const [ordered, setOrdered] = useState({
+    first: null,
+    waypoints: [],
+    last: null,
+  });
+
   var stops = [...props.stops];
 
   return (
@@ -17,7 +23,7 @@ function AddedStops(props) {
         </div>
       ))}
       <input type="text" placeholder="Add Destination" className="addDestination is-rounded" onChange={e => setInput(e.target.value)}></input>
-      <AddBtn stops={stops} input={input} setStops={props.setStops} setSRC={props.setSRC}/>
+      <AddBtn stops={stops} setStops={props.setStops} input={input} setSRC={props.setSRC} ordered={ordered} setOrdered={setOrdered}/>
     </div>
   );
 }
