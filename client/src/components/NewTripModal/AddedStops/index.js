@@ -19,6 +19,7 @@ function AddedStops(props) {
           mode = "directions", 
           starterSRC += "&origin=" + object.origin + "&destination=" + object.destination + waypoints
         ) : (""));
+
     props.setSRC(exportSRC);
   }
  
@@ -40,8 +41,8 @@ function AddedStops(props) {
   function editStops(array) {
     var newOrdered = {};
     
-    newOrdered.origin = array.length > 0 ? (array[0]) : ("");
-    newOrdered.destination = array.length > 1 ? (array[array.length - 1]): ("");
+    newOrdered.origin = array.length > 0 ? (array[0]) : (null);
+    newOrdered.destination = array.length > 1 ? (array[array.length - 1]): (null);
     newOrdered.waypoints = array.length > 2 ? (
       array.slice(1, array.length - 1)
     ) : ([]);
