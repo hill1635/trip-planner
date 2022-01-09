@@ -42,25 +42,13 @@ function AddedStops(props) {
   }
 
   function editStops(array) {
-    var newOrdered = {
-      origin: "",
-      destination: "",
-      waypoints: []
-    };
-
-    if (array.length === 1) {
-      newOrdered.origin = array[0];
-    } else if (array.length === 2) {
-      newOrdered.origin = array[0];
-      newOrdered.destination = array[1];
-    } else if (array.length > 2) {
-      newOrdered.origin = array[0];
-      newOrdered.destination = array[array.length - 1];
-      var newArray = [...array];
-      newArray.splice(0, 1)
-      newArray.splice(newArray.length - 1, 1);
-      newOrdered.waypoints = [...newArray];
-    }
+    var newOrdered = {};
+    
+    newOrdered.origin = array.length > 0 ? (array[0]) : ("");
+    newOrdered.destination = array.length > 1 ? (array[array.length - 1]): ("");
+    newOrdered.waypoints = array.length > 2 ? (
+      array.slice(1, array.length - 1)
+    ) : ([]);
 
     convertFormat(newOrdered);
   }
