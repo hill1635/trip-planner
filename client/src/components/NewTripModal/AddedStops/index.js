@@ -7,24 +7,23 @@ function AddedStops(props) {
   var index = 0;
 
   function generateSRC(object) {
-    var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
-    var src =
-      "https://www.google.com/maps/embed/v1/directions?key=" + googleMapsAPIKey;
+    var mode = "";
+    var googleMapsAPIKey = "?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
+    var starterSRC = "https://www.google.com/maps/embed/v1/" + mode + googleMapsAPIKey;
+    var exportSRC = "";
+
     if (object.first !== null && object.last === null) {
-      src =
-        "https://www.google.com/maps/embed/v1/place?key=" +
-        googleMapsAPIKey +
-        "&q=" +
-        object.first;
+      mode = "place";
+      exportSRC = "&q=" + starterSRC + object.first;
     }
     if (object.last !== null) {
-      src += "&origin=" + object.first + "&destination=" + object.last;
+      mode = "directions";
+      exportSRC = starterSRC + "&origin=" + object.first + "&destination=" + object.last;
     }
     if (object.waypoints.length > 0) {
-      src += "&waypoints=" + object.waypoints;
+      exportSRC += "&waypoints=" + object.waypoints;
     }
-    console.log(src);
-    // props.setSRC(src);
+    props.setSRC(exportSRC);
   }
  
   function convertFormat(object) {
