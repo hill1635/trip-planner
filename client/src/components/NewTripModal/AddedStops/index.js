@@ -69,6 +69,13 @@ function AddedStops(props) {
     editStops(updatedArray);
   }
 
+  function removeStop(event) {
+    var index = props.stops.indexOf(stopsArray);
+    var updatedStops = [...stopsArray];
+    updatedStops.splice(index, 1);
+    props.setStops(updatedStops);
+  }
+
   return (
     <div>
       <ul>
@@ -78,7 +85,7 @@ function AddedStops(props) {
           <p>{stop}</p>
         {/* </input> */}
         <button>
-          <i className="fas fa-times"></i>
+          <i className="fas fa-times" onClick={e => removeStop(e.target)}></i>
          </button>
         </div>
       ))}
