@@ -19,24 +19,20 @@ function AddedStops(props) {
           mode = "directions", 
           starterSRC += "&origin=" + object.origin + "&destination=" + object.destination + waypoints
         ) : (""));
-        
     props.setSRC(exportSRC);
   }
  
   function convertFormat(object) {
     var convertedObject = {};
-    
-    if (object.origin !== null) {
-      convertedObject.origin = object.origin.split(", ").join(",").split(" ").join("+");
-    }
-    if (object.destination !== null) {
-      convertedObject.destination = object.destination.split(", ").join(",").split(" ").join("+");
-    }
-    if (object.waypoints.length > 0) {
-      convertedObject.waypoints = object.waypoints.join("|").split(", ").join(",").split(" ").join("+");
-    } else {
-      convertedObject.waypoints = [];
-    }
+
+    convertedObject.origin = object.origin !== null ?
+    (object.origin.split(", ").join(",").split(" ").join("+")) : (null);
+
+    convertedObject.destination = object.destination !== null ?
+    (object.destination.split(", ").join(",").split(" ").join("+")) : (null);
+
+    convertedObject.waypoints = object.waypoints.length > 0 ?
+    (object.waypoints.join("|").split(", ").join(",").split(" ").join("+")) : ([]);
 
     generateSRC(convertedObject);
   }
