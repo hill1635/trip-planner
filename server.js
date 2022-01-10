@@ -23,7 +23,6 @@ const sess = {
 };
 
 app.use(session(sess));
-console.log("ttl: ", sess);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
