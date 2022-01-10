@@ -1,6 +1,4 @@
-const router = require("./users");
-
-router = require("express").Router();
+const router = require("express").Router();
 
 router
     .route("/")
