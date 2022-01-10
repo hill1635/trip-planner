@@ -8,4 +8,10 @@ export default {
       "https://api.mapbox.com/geocoding/v5/mapbox.places/" + search + ".json?&access_token=" + apiKey
     );
   },
+  createUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
+  deleteUser: function(id) {
+    return axios.delete("api/books/" + id);
+  }
 };
