@@ -9,4 +9,8 @@ router
   .route("/:id")
   .delete(usersController.remove);
 
+router
+  .route("/login")
+  .post(usersController.login);
+
 module.exports = router;
