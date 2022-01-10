@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from "react";
+import API from "../../utils/API";
 import "./style.scss";
 
 function LoginModal() {
   const [state, setState] = useState("modal loginModal");
+
+  function login(target) {
+    var loginInfo = target.parentNode.parentNode.children[0];
+
+    API.login({
+      email: loginInfo.children[0].children[0].value,
+      password: loginInfo.children[1].children[0].value
+    });
+  }
 
   useEffect(() => {
     var login = document.querySelector(".login");
@@ -32,7 +42,7 @@ function LoginModal() {
             </div>
           </div>
           <div className="column centered is-two-fifths">
-            <button className="submit button is-rounded is-success">Login</button>
+            <button className="submit button is-rounded is-success" onClick={e => login(e.target)}>Login</button>
             <button className="cancelBtn button is-danger is-outlined is-rounded" aria-label="close" onClick={close}>
               <i className="fas fa-times mr-1"></i>
               Cancel
