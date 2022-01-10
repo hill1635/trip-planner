@@ -7,11 +7,7 @@ function SignUpModal() {
 
     function submitSignup(target) {
       var submittedInfo = target.parentNode.children[0];
-      // var newUser = {
-      //   email: submittedInfo.children[0].children[0].value,
-      //   password: submittedInfo.children[1].children[0].value
-      // };
-      // console.log("newUser: ", newUser);
+      
       API.createUser({
         email: submittedInfo.children[0].children[0].value,
         password: submittedInfo.children[1].children[0].value
