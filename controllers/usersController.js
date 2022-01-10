@@ -13,5 +13,14 @@ module.exports = {
         .then(dbModel => dbModel.remove())
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    },
+    login: function(req, res) {
+        db
+        .find({ email: req.params.email })
+        .then(dbModel => {
+            console.log("dbModel: ", dbModel);
+            res.json(dbModel);
+        })
+        .catch(err => res.status(422).json(err));
     }
 };
