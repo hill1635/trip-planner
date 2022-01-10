@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
 import "./style.scss";
 
 function SignUpModal() {
     const [state, setState] = useState("modal loginModal");
+
+    function submitSignup(target) {
+      var submittedInfo = target.parentNode.children[0];
+      var newUser = {
+        email: submittedInfo.children[0].children[0].value,
+        password: submittedInfo.children[1].children[0].value
+      };
+      API.createUser(newUser);
+    }
   
     useEffect(() => {
       var signup = document.querySelector(".signup");
@@ -25,13 +35,13 @@ function SignUpModal() {
           <div className="modal-content">
             <div className="centered columns">
               <div className="centered column is-half">
-                <input className="input is-rounded" type="text" placeholder="Email"></input>
+                <input className="email input is-rounded" type="text" placeholder="Email"></input>
               </div>
               <div className="centered column is-half">
-                <input className="input is-rounded"type="text" placeholder="Password"></input>
+                <input className="password input is-rounded"type="text" placeholder="Password"></input>
               </div>
             </div>
-            <button className="submit">Sign up</button>
+            <button className="submit" onClick={e => submitSignup(e.target)}>Sign up</button>
             <button className="cancelBtn" aria-label="close" onClick={close}>Cancel</button>
           </div>
         </div>
