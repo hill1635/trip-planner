@@ -16,11 +16,20 @@ module.exports = {
     },
     login: function(req, res) {
         db
-        .find({ email: req.params.email })
+        .find({ email: req.params.email, password: req.params.password })
         .then(dbModel => {
-            console.log("dbModel: ", dbModel);
-            res.json(dbModel);
+            if (!dbModel) {
+                res.status(400);
+                alert("Email or password incorrect.");
+                return;
+            }
+            req.session.save(() => {
+                req.session.loggedIn = true;
+                res
+                .status(200)
+                .json({user: req.params.email})
+            });
         })
-        .catch(err => res.status(422).json(err));
+        .catch(err => res.status(500).json(err));
     }
 };
