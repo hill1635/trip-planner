@@ -28,6 +28,7 @@
     "bcrypt-nodejs": "0.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.12.12",
     "react-router-dom": "^5.2.0"
