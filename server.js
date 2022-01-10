@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const MongoStore = require("connect-mongo");
-const routes = require("./routes");
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,14 +16,14 @@ const sess = {
     cookie: {},
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ 
-        mongoURL: "mongodb://localhost/trip-planner",
-        ttl: 2 * 60 * 60
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60 * 60 * 1000
     })
 };
 
 app.use(session(sess));
-console.log("ttl: ", sess.store.ttl);
+console.log("ttl: ", sess);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
