@@ -13,7 +13,7 @@ const UserSchema = new Schema({
     type: String,
     trim: true,
     required: "Password is required.",
-    // validate: [({ length }) => length >= 8, "Password needs to be longer."],
+    validate: [({ length }) => length >= 8, "Password needs to be longer."],
   },
 
   userCreated: {
