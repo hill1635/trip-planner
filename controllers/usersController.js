@@ -22,7 +22,6 @@ module.exports = {
         return res.status(400).send( { message: "Email is incorrect."});
       }
       if(!bcrypt.compareSync(req.body.password, dbModel[0].password)) {
-        console.log("didn't work");
         return res.status(400).send({ message: "Password is invalid."});
       }
       req.session.save(() => {
