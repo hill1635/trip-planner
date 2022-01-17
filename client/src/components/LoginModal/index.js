@@ -5,12 +5,18 @@ import "./style.scss";
 function LoginModal() {
   const [state, setState] = useState("modal loginModal");
 
+  function close() {
+    setState("modal loginModal");
+  }
+
   function login(target) {
     var loginInfo = target.parentNode.parentNode.children[0];
 
     API.login({
       email: loginInfo.children[0].children[0].value,
       password: loginInfo.children[1].children[0].value
+    }).then(() => {
+    close();
     });
   }
 
@@ -20,10 +26,6 @@ function LoginModal() {
       setState("modal loginModal is-active");
     });
   });
-  
-  function close() {
-    setState("modal loginModal");
-  }
 
   return (
     <div className={state}>
