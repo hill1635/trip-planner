@@ -13,12 +13,12 @@ app.use(express.json());
 
 const sess = {
   secret: "the secret",
-  cookie: {},
+  cookie: { maxAge: 1000 * 60 * 60 * 24 },
   resave: false,
   saveUninitialized: true,
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 60 * 60 * 1000,
+    ttl: 1000,
   }),
 };
 
