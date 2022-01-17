@@ -11,8 +11,6 @@ function LoginModal() {
     API.login({
       email: loginInfo.children[0].children[0].value,
       password: loginInfo.children[1].children[0].value
-    }).then(() => {
-      console.log("hello");
     });
   }
 
