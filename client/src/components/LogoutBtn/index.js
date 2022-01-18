@@ -1,9 +1,18 @@
 import React from "react";
 import API from "../../utils/API";
 
-function LogoutBtn() {
+function LogoutBtn(props) {
 
-  return <button className="button" onClick={API.logout}>Log Out</button>;
+  function logout() {
+    props.setLoggedIn(false);
+    API.logout();
+  }
+
+  return (
+    <button className="button" onClick={logout}>
+      Log Out
+    </button>
+  );
 }
 
 export default LogoutBtn;

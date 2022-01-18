@@ -35,9 +35,9 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <LoginBtn/>
+              <LoginBtn setLoggedIn={setLoggedIn}/>
               <SignUpBtn/>
-              <LogoutBtn setLoggedIn={setLoggedIn}/>
+              <LogoutBtn loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
             </div>
           </div>
         </div>
