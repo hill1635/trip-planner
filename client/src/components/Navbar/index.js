@@ -5,7 +5,7 @@ import LogoutBtn from "../LogoutBtn";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [ display, setDisplay ] = useState();
+  const [ loggedIn, setLoggedIn ] = useState();
 
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -35,9 +35,9 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <LoginBtn display={display} setDisplay={setDisplay}/>
-              <SignUpBtn display={display}/>
-              <LogoutBtn display={display} setDisplay={setDisplay}/>
+              <LoginBtn/>
+              <SignUpBtn/>
+              <LogoutBtn setLoggedIn={setLoggedIn}/>
             </div>
           </div>
         </div>

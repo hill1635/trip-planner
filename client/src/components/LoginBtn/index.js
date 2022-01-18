@@ -1,11 +1,11 @@
 import React from "react";
 import LoginModal from "../LoginModal";
 
-function LoginBtn() {
+function LoginBtn(props) {
   return (
     <div>
       <button className="button is-light login">Log in</button>
-      <LoginModal/>
+      <LoginModal setLoggedIn={props.setLoggedIn}/>
     </div>
   );
 }

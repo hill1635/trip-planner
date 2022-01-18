@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import "./style.scss";
 
-function LoginModal() {
+function LoginModal(props) {
   const [state, setState] = useState("modal loginModal");
 
   function close() {
@@ -11,7 +11,7 @@ function LoginModal() {
 
   function login(target) {
     var loginInfo = target.parentNode.parentNode.children[0];
-
+    props.setLoggedIn(true);
     API.login({
       email: loginInfo.children[0].children[0].value,
       password: loginInfo.children[1].children[0].value
