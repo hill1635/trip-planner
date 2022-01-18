@@ -38,7 +38,7 @@ function SignUpModal() {
                 <input className="email input is-rounded" type="text" placeholder="Email"></input>
               </div>
               <div className="centered column is-half">
-                <input className="password input is-rounded"type="text" placeholder="Password"></input>
+                <input className="password input is-rounded"type="password" placeholder="Password"></input>
               </div>
             </div>
             <button className="submit" onClick={e => submitSignup(e.target)}>Sign up</button>

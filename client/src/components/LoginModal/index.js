@@ -46,7 +46,7 @@ function LoginModal(props) {
             <div className="centered column is-half">
               <input
                 className="input is-rounded"
-                type="text"
+                type="password"
                 placeholder="Password"
               ></input>
             </div>
