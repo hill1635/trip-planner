@@ -11,12 +11,12 @@ function LoginModal(props) {
 
   function login(target) {
     var loginInfo = target.parentNode.parentNode.children[0];
-    props.setLoggedIn(true);
     API.login({
       email: loginInfo.children[0].children[0].value,
-      password: loginInfo.children[1].children[0].value
+      password: loginInfo.children[1].children[0].value,
     }).then(() => {
-    close();
+      props.setLoggedIn(true);
+      close();
     });
   }
 
@@ -37,15 +37,32 @@ function LoginModal(props) {
         <div className="modal-content p-5">
           <div className="centered columns">
             <div className="centered column is-half">
-              <input className="input is-rounded" type="text" placeholder="Email"></input>
+              <input
+                className="input is-rounded"
+                type="text"
+                placeholder="Email"
+              ></input>
             </div>
             <div className="centered column is-half">
-              <input className="input is-rounded" type="text" placeholder="Password"></input>
+              <input
+                className="input is-rounded"
+                type="text"
+                placeholder="Password"
+              ></input>
             </div>
           </div>
           <div className="column centered is-two-fifths">
-            <button className="submit button is-rounded is-success" onClick={e => login(e.target)}>Login</button>
-            <button className="cancelBtn button is-danger is-outlined is-rounded" aria-label="close" onClick={close}>
+            <button
+              className="submit button is-rounded is-success"
+              onClick={(e) => login(e.target)}
+            >
+              Login
+            </button>
+            <button
+              className="cancelBtn button is-danger is-outlined is-rounded"
+              aria-label="close"
+              onClick={close}
+            >
               <i className="fas fa-times mr-1"></i>
               Cancel
             </button>
