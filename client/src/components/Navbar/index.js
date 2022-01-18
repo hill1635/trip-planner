@@ -11,7 +11,7 @@ function Navbar() {
   ({
     loginBtn : "button login is-hidden",
     signupBtn: "button signup is-hidden",
-    logoutBtn: "button is-hidden",
+    logoutBtn: "button",
   }): ({
     loginBtn : "button login",
     signupBtn: "button signup",
