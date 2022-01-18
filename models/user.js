@@ -21,7 +21,7 @@ const UserSchema = new Schema({
   },
 
   trips: {
-    type: Object,
+    type: Array,
   },
 
   userCreated: {
