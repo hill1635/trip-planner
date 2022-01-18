@@ -4,7 +4,7 @@ import LoginModal from "../LoginModal";
 function LoginBtn(props) {
   return (
     <div>
-      <button className="button is-light login">Log in</button>
+      <button className={props.display.loginBtn}>Log in</button>
       <LoginModal setLoggedIn={props.setLoggedIn}/>
     </div>
   );
