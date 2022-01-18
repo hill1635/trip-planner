@@ -26,7 +26,7 @@ module.exports = {
       }
       req.session.save(() => {
         req.session.loggedIn = true;
-        req.session.userId = req.body.email;
+        req.session.userId = dbModel[0]._id;
         res.status(200).json({ user: req.body.email });
       });
     })
