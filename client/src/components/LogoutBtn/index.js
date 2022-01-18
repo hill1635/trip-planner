@@ -1,3 +1,4 @@
+import { process_params } from "express/lib/router";
 import React from "react";
 import API from "../../utils/API";
 
@@ -9,7 +10,7 @@ function LogoutBtn(props) {
   }
 
   return (
-    <button className="button" onClick={logout}>
+    <button className={props.display.logoutBtn} onClick={logout}>
       Log Out
     </button>
   );

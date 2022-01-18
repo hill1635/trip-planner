@@ -10,11 +10,11 @@ function Navbar() {
   var display = loggedIn ?
   ({
     loginBtn : "button login is-hidden",
-    signUpBtn: "button is-hidden",
+    signupBtn: "button is-hidden",
     logoutBtn: "button is-hidden",
   }): ({
     loginBtn : "button login",
-    signUpBtn: "button",
+    signupBtn: "button",
     logoutBtn: "button is-hidden",
   });
 
