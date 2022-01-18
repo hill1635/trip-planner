@@ -7,6 +7,17 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [ loggedIn, setLoggedIn ] = useState();
 
+  var display = loggedIn ?
+  ({
+    loginBtn : "button login is-hidden",
+    signUpBtn: "button is-hidden",
+    logoutBtn: "button is-hidden",
+  }): ({
+    loginBtn : "button login",
+    signUpBtn: "button",
+    logoutBtn: "button is-hidden",
+  });
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -35,9 +46,9 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <LoginBtn setLoggedIn={setLoggedIn}/>
-              <SignUpBtn/>
-              <LogoutBtn loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+              <LoginBtn display={display} setLoggedIn={setLoggedIn}/>
+              <SignUpBtn display={display}/>
+              <LogoutBtn display={display} setLoggedIn={setLoggedIn}/>
             </div>
           </div>
         </div>
