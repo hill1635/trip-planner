@@ -7,7 +7,7 @@ export default {
     return axios.post("/api/users", userData);
   },
   deleteUser: function(id) {
-    return axios.delete("api/books/" + id);
+    return axios.delete("api/users/" + id);
   },
   login: function(userData) {
     return axios.post("/api/users/login", userData);
