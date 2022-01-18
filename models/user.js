@@ -16,6 +16,14 @@ const UserSchema = new Schema({
     validate: [({ length }) => length >= 8, "Password needs to be longer."],
   },
 
+  profile: {
+    type: Object,
+  },
+
+  trips: {
+    type: Object,
+  },
+
   userCreated: {
     type: Date,
     default: Date.now,
