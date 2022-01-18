@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginBtn from "../LoginBtn";
 import SignUpBtn from "../SignUpBtn";
 import LogoutBtn from "../LogoutBtn";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [ loggedIn, setLoggedIn ] = useState();
+  
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
