@@ -8,8 +8,6 @@ function NewTripModal() {
   const [state, setState] = useState("modal newTripModal");
   const [stops, setStops] = useState([]);
   const [src, setSRC] = useState("");
-
-  console.log("src: ", src);
     
     useEffect(() => {
       var startBtn = document.querySelector(".startBtn");
