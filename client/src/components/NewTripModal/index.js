@@ -9,6 +9,8 @@ function NewTripModal() {
   const [stops, setStops] = useState([]);
   const [src, setSRC] = useState("");
 
+  var tripObject = {};
+
   useEffect(() => {
     var startBtn = document.querySelector(".startBtn");
     startBtn.addEventListener("click", () => {
@@ -36,6 +38,7 @@ function NewTripModal() {
             object.destination +
             waypoints))
         : "";
+    tripObject.src = exportSRC;
     setSRC(exportSRC);
   }
 
@@ -60,13 +63,11 @@ function NewTripModal() {
   }
 
   function editStops(array) {
-    var newOrdered = {};
-
-    newOrdered.origin = array.length > 0 ? array[0] : null;
-    newOrdered.destination = array.length > 1 ? array[array.length - 1] : null;
-    newOrdered.waypoints =
+    tripObject.origin = array.length > 0 ? array[0] : null;
+    tripObject.destination = array.length > 1 ? array[array.length - 1] : null;
+    tripObject.waypoints =
       array.length > 2 ? array.slice(1, array.length - 1) : [];
-    convertFormat(newOrdered);
+    convertFormat(tripObject);
   }
 
   function close() {
