@@ -13,4 +13,7 @@ export default {
   logout: function() {
     return axios.post("/api/users/logout");
   },
+  createTrip: function(tripData) {
+    return axios.post("/api/trips", tripData);
+  },
 };
