@@ -6,54 +6,10 @@ function AddedStops(props) {
   var stopsArray = [...props.stops];
   var index = 0;
 
-  function generateSRC(object) {
-    var mode = "";
-    var googleMapsAPIKey = "?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
-    var starterSRC = "https://www.google.com/maps/embed/v1/" + mode + googleMapsAPIKey;
-    var waypoints = object.waypoints.length > 0 ? ("&waypoints=" + object.waypoints) : ("");
-
-    var exportSRC = (object.origin !== null && object.destination === null) ? 
-    (mode = "place", starterSRC += "&q=" + object.origin) : 
-      (object.destination !== null ? 
-        (
-          mode = "directions", 
-          starterSRC += "&origin=" + object.origin + "&destination=" + object.destination + waypoints
-        ) : (""));
-
-    props.setSRC(exportSRC);
-  }
- 
-  function convertFormat(object) {
-    var convertedObject = {};
-
-    convertedObject.origin = object.origin !== null ?
-    (object.origin.split(", ").join(",").split(" ").join("+")) : (null);
-
-    convertedObject.destination = object.destination !== null ?
-    (object.destination.split(", ").join(",").split(" ").join("+")) : (null);
-
-    convertedObject.waypoints = object.waypoints.length > 0 ?
-    (object.waypoints.join("|").split(", ").join(",").split(" ").join("+")) : ([]);
-
-    generateSRC(convertedObject);
-  }
-
-  function editStops(array) {
-    var newOrdered = {};
-    
-    newOrdered.origin = array.length > 0 ? (array[0]) : (null);
-    newOrdered.destination = array.length > 1 ? (array[array.length - 1]): (null);
-    newOrdered.waypoints = array.length > 2 ? (
-      array.slice(1, array.length - 1)
-    ) : ([]);
-
-    convertFormat(newOrdered);
-  }
-
   function add() {
     props.setStops([...stopsArray, input]);
     var updatedArray = [...props.stops, input];
-    editStops(updatedArray);
+    props.editStops(updatedArray);
   }
 
   function removeStop(event) {
@@ -61,7 +17,7 @@ function AddedStops(props) {
     var updatedStops = [...props.stops];
     updatedStops.splice(arrayIndex, 1);
     props.setStops(updatedStops);
-    editStops(updatedStops);
+    props.editStops(updatedStops);
   }
 
   return (
